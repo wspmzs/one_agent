@@ -1,0 +1,20 @@
+[
+  {
+    "error": null,
+    "run_at": "2026-05-25T01:45:56.236662Z",
+    "status": "success",
+    "trigger": "scheduled"
+  },
+  {
+    "error": null,
+    "run_at": "2026-05-24T16:39:57.995017Z",
+    "status": "success",
+    "trigger": "manual"
+  },
+  {
+    "error": null,
+    "run_at": "2026-05-24T14:52:18.195855Z",
+    "status": "success",
+    "trigger": "manual"
+  }
+]

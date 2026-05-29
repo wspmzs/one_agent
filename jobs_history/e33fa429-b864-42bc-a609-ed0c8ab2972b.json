@@ -1,0 +1,38 @@
+[
+  {
+    "error": null,
+    "run_at": "2026-05-28T10:00:01.606225Z",
+    "status": "success",
+    "trigger": "scheduled"
+  },
+  {
+    "error": null,
+    "run_at": "2026-05-27T10:00:00.427584Z",
+    "status": "success",
+    "trigger": "scheduled"
+  },
+  {
+    "error": null,
+    "run_at": "2026-05-26T10:00:00.378557Z",
+    "status": "success",
+    "trigger": "scheduled"
+  },
+  {
+    "error": null,
+    "run_at": "2026-05-25T10:00:00.855546Z",
+    "status": "success",
+    "trigger": "scheduled"
+  },
+  {
+    "error": null,
+    "run_at": "2026-05-24T15:02:53.489563Z",
+    "status": "success",
+    "trigger": "manual"
+  },
+  {
+    "error": null,
+    "run_at": "2026-05-24T10:00:00.389075Z",
+    "status": "success",
+    "trigger": "scheduled"
+  }
+]

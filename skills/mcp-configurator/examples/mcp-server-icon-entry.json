@@ -1,0 +1,18 @@
+{
+  "mcp_server_icon": {
+    "name": "MCP Server Icon",
+    "description": "Search emoji and icons via MCP. Provides search_icons tool.",
+    "enabled": true,
+    "transport": "stdio",
+    "command": "npx",
+    "args": [
+      "-y",
+      "@liangshanli/mcp-server-icon"
+    ],
+    "env": {
+      "LANGUAGE": "zh-CN",
+      "WEB_SERVER_AUTO_OPEN": "false"
+    },
+    "cwd": ""
+  }
+}

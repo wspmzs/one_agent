@@ -1,0 +1,18 @@
+{
+  "压缩模型": {
+    "base_url": "https://api.deepseek.com",
+    "model_id": "deepseek-v4-flash"
+  },
+  "向量比对模型": {
+    "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+    "model_id": "text-embedding-v4"
+  },
+  "相似度验证": {
+    "阈值": 0.75,
+    "低于阈值时": "提醒用户"
+  },
+  "环境变量": {
+    "压缩模型密钥": "CAVEMAN_MODEL_KEY",
+    "向量模型密钥": "CAVEMAN_EMBEDDING_KEY"
+  }
+}

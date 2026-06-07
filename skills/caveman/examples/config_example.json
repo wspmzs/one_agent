@@ -1,0 +1,31 @@
+{
+  "说明": "此文件为配置示例，展示 config.json 的结构和环境变量命名规范。",
+  "config_json_结构": {
+    "压缩模型": {
+      "base_url": "https://api.deepseek.com",
+      "model_id": "deepseek-v4-flash"
+    },
+    "向量比对模型": {
+      "base_url": "http://127.0.0.1:11434/v1",
+      "model_id": "qwen3-embedding:4b"
+    },
+    "相似度验证": {
+      "阈值": 0.75,
+      "低于阈值时": "提醒用户"
+    },
+    "环境变量": {
+      "压缩模型密钥": "CAVEMAN_MODEL_KEY",
+      "向量模型密钥": "CAVEMAN_EMBEDDING_KEY"
+    }
+  },
+  "环境变量设置方法": {
+    "步骤": "QwenPaw → 设置 → 环境变量 → 添加",
+    "CAVEMAN_MODEL_KEY": "压缩模型的 API 密钥（使用路径 B 必填）",
+    "CAVEMAN_EMBEDDING_KEY": "向量比对模型的 API 密钥（仅使用 -v 验证时必填，与压缩模型同服务可填相同值）"
+  },
+  "备注": [
+    "base_url 和 model_id 放在 config.json 中，跟随 skill 文件夹",
+    "API 密钥仅通过环境变量配置，不存放在任何文件中",
+    "环境变量名可在 config.json 的「环境变量」字段中自定义，脚本会自动读取"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "os": "Windows_NT",
+  "os_ver": "Microsoft Windows NT 10.0.19045.0",
+  "arch": "AMD64",
+  "path_count": 12,
+  "shell": "C:\\Windows\\system32\\cmd.exe",
+  "tools": {
+    "python": { "installed": true, "version": "Python 3.12.0" },
+    "python3": { "installed": false, "version": "" },
+    "pip": { "installed": true, "version": "pip 24.0 from C:\\Python312\\lib\\site-packages\\pip" },
+    "node": { "installed": true, "version": "v22.0.0" },
+    "npm": { "installed": true, "version": "10.5.0" },
+    "git": { "installed": true, "version": "git version 2.42.0.windows.2" },
+    "docker": { "installed": true, "version": "Docker version 24.0.6, build ed223bc" },
+    "go": { "installed": false, "version": "" },
+    "java": { "installed": true, "version": "java version \"21.0.1\" 2023-10-17 LTS" },
+    "dotnet": { "installed": true, "version": "8.0.100" },
+    "curl": { "installed": true, "version": "curl 8.4.0 (x86_64-pc-win32)" },
+    "code": { "installed": true, "version": "1.85.0" },
+    "make": { "installed": false, "version": "" },
+    "rustc": { "installed": false, "version": "" }
+  },
+  "env": {
+    "USERPROFILE": "C:\\Users\\Lenovo",
+    "HOMEDRIVE": "C:",
+    "HOMEPATH": "\\Users\\Lenovo",
+    "APPDATA": "C:\\Users\\Lenovo\\AppData\\Roaming",
+    "LOCALAPPDATA": "C:\\Users\\Lenovo\\AppData\\Local",
+    "TEMP": "C:\\Users\\Lenovo\\AppData\\Local\\Temp",
+    "USERNAME": "Lenovo",
+    "COMPUTERNAME": "DESKTOP-ABC123"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "id": "view-image",
+  "name": "View Image",
+  "version": "1.0.0",
+  "type": "tool",
+  "description": "Analyze images using VLM vision model",
+  "description_i18n": {
+    "zh-CN": "调用 VLM 模型分析单张图片内容，支持本地文件与 URL",
+    "en-US": "Analyze single image using VLM vision model, supports local files and URLs"
+  },
+  "author": "impmzs",
+  "entry": {
+    "backend": "image_reader.py"
+  },
+  "dependencies": [
+    "Pillow>=10.0.0",
+    "httpx>=0.27.0"
+  ],
+  "min_version": "1.1.6",
+  "meta": {
+    "tools": [
+      {
+        "name": "describe_image",
+        "description": "Describe an image using VLM",
+        "icon": "🖼️",
+        "requires_config": true,
+        "config_fields": [
+          {
+            "name": "vlm_api_url",
+            "label": "VLM API URL",
+            "type": "text",
+            "required": true,
+            "placeholder": "https://your-vlm-api.com/v1/chat/completions",
+            "help": "VLM API endpoint (OpenAI-compatible)"
+          },
+          {
+            "name": "vlm_api_key",
+            "label": "VLM API Key",
+            "type": "password",
+            "required": true,
+            "placeholder": "sk-...",
+            "help": "API key for VLM service"
+          },
+          {
+            "name": "vlm_model_name",
+            "label": "VLM Model Name",
+            "type": "text",
+            "required": true,
+            "placeholder": "qwen-vl-max",
+            "help": "VLM model name"
+          },
+          {
+            "name": "per_image_timeout",
+            "label": "Per-Image Timeout (s)",
+            "type": "number",
+            "required": false,
+            "default": 60,
+            "min": 10,
+            "max": 300,
+            "help": "Timeout per image request (seconds, default 60)"
+          },
+          {
+            "name": "prompt_template",
+            "label": "Prompt Template",
+            "type": "text",
+            "required": false,
+            "default": "请详细描述这张图片的内容，包括：1）主体对象及其属性 2）布局/结构 3）文字内容（如有）4）数据可视化中的趋势/对比关系（如有）。用中文输出。",
+            "help": "Default prompt for image description"
+          }
+        ]
+      }
+    ]
+  }
+}

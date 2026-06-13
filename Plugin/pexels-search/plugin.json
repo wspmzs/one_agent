@@ -1,0 +1,82 @@
+{
+  "id": "pexels-search",
+  "name": "Pexels Image Search",
+  "version": "1.0.0",
+  "type": "tool",
+  "description": "Search and download high-quality free images from Pexels",
+  "description_i18n": {
+    "zh-CN": "从 Pexels 搜索和下载高质量免费图片，适用于 PPT、前端页面等场景",
+    "en-US": "Search and download high-quality free images from Pexels"
+  },
+  "author": "zhangshuo",
+  "entry": {
+    "backend": "pexels_reader.py"
+  },
+  "dependencies": [
+    "httpx>=0.25.0"
+  ],
+  "min_version": "1.1.6",
+  "meta": {
+    "tools": [
+      {
+        "name": "search_pexels_images",
+        "description": "Search Pexels high-quality images",
+        "description_i18n": {
+          "zh-CN": "搜索 Pexels 高质量图片",
+          "en-US": "Search Pexels high-quality images"
+        },
+        "icon": "🔍",
+        "requires_config": true,
+        "config_fields": [
+          {
+            "name": "pexels_token",
+            "label": "Pexels API Token",
+            "type": "password",
+            "required": true,
+            "placeholder": "从 https://www.pexels.com/api/ 获取",
+            "help": "Pexels API 密钥，用于访问图片搜索服务"
+          },
+          {
+            "name": "preferred_image_size",
+            "label": "默认图片尺寸",
+            "type": "text",
+            "required": false,
+            "default": "large",
+            "placeholder": "large / medium / small / original / portrait / landscape / tiny",
+            "help": "AI 默认使用的图片尺寸: original, large2x, large, medium, small, portrait, landscape, tiny。所有尺寸的 URL 仍会并列展示"
+          },
+          {
+            "name": "results_per_page",
+            "label": "每页结果数",
+            "type": "number",
+            "required": false,
+            "default": 5,
+            "min": 1,
+            "max": 80,
+            "help": "每次搜索返回的图片数量，最大 80"
+          }
+        ]
+      },
+      {
+        "name": "download_pexels_image",
+        "description": "Download Pexels image to local",
+        "description_i18n": {
+          "zh-CN": "下载 Pexels 图片到本地",
+          "en-US": "Download Pexels image to local"
+        },
+        "icon": "📥",
+        "requires_config": true,
+        "config_fields": [
+          {
+            "name": "pexels_token",
+            "label": "Pexels API Token",
+            "type": "password",
+            "required": true,
+            "placeholder": "从 https://www.pexels.com/api/ 获取",
+            "help": "Pexels API 密钥"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,6 +1,6 @@
-<picture>
-  <img alt="view-image banner" src="https://img.shields.io/badge/QwenPaw-Plugin-6366f1?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTIgM2g2YTQgNCAwIDAgMSA0IDR2MTRhMyAzIDAgMCAwLTMtM0gyeiIvPjxwYXRoIGQ9Ik0yMiAzaC02YTQgNCAwIDAgMC00IDR2MTRhMyAzIDAgMCAxIDMtM2g3eiIvPjwvc3ZnPg==">
-</picture>
+[![版本](https://img.shields.io/badge/version-1.0.0-blue)](./plugin.json)
+[![协议](https://img.shields.io/badge/license-Apache%202.0-green)](./LICENSE)
+[![QwenPaw](https://img.shields.io/badge/QwenPaw-%3E%3D1.1.6-orange)](./plugin.json)
 
 # View Image
 

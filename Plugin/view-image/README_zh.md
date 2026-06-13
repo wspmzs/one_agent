@@ -1,3 +1,7 @@
+[![版本](https://img.shields.io/badge/version-1.0.0-blue)](./plugin.json)
+[![协议](https://img.shields.io/badge/license-Apache%202.0-green)](./LICENSE)
+[![QwenPaw](https://img.shields.io/badge/QwenPaw-%3E%3D1.1.6-orange)](./plugin.json)
+
 # View Image（图像理解）
 
 很多强大的推理模型原生不具备视觉能力，无法直接理解图片内容。View Image 插件通过接入一个多模态 VLM（Vision Language Model），赋予 Agent 图像理解能力。

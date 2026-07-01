@@ -1,0 +1,152 @@
+{
+  "id": "html-2-md",
+  "name": "HTML to Markdown",
+  "version": "1.0.0",
+  "author": "impmzs",
+  "description": "将网页URL转换为Markdown文本。支持上下文/文件双模式和批量处理。",
+  "type": "tool",
+  "min_version": "1.1.6",
+  "entry": {
+    "backend": "html_2_md_plugin.py"
+  },
+  "dependencies": [
+    "httpx",
+    "beautifulsoup4",
+    "markdownify",
+    "charset-normalizer",
+    "pyyaml"
+  ],
+  "description_i18n": {
+    "zh-CN": "将网页URL转换为Markdown文本。支持上下文/文件双模式和批量处理。",
+    "en-US": "Convert web page URLs to Markdown text. Supports context/file modes and batch processing."
+  },
+  "meta": {
+    "tools": [
+      {
+        "name": "html_2_md",
+        "icon": "📑",
+        "requires_config": true,
+        "description": "将网页URL转换为Markdown文本",
+        "config_fields": [
+          {
+            "name": "save_path",
+            "label": "默认保存路径",
+            "type": "text",
+            "default": "",
+            "placeholder": "D:\\Obsidian\\articles\\",
+            "help": "file模式的默认保存目录，不填写则使用此默认值"
+          },
+          {
+            "name": "filename_template",
+            "label": "文件名模板",
+            "type": "text",
+            "default": "{date}-{title}.md",
+            "placeholder": "{date}-{title}.md",
+            "help": "支持变量：{date}, {title}, {domain}, {author}"
+          },
+          {
+            "name": "yaml_fields",
+            "label": "YAML前置字段",
+            "type": "text",
+            "default": "title,author,source,published,created,tags",
+            "placeholder": "title,author,source,published,created,tags",
+            "help": "逗号分隔。固定顺序：title,author,source,published,created,tags"
+          },
+          {
+            "name": "date_format_filename",
+            "label": "文件名日期格式",
+            "type": "text",
+            "default": "yyyymmdd",
+            "placeholder": "yyyymmdd（yyyy-mm-dd / iso 也可用）",
+            "help": "文件名中{date}变量的格式"
+          },
+          {
+            "name": "date_format_yaml",
+            "label": "YAML日期格式",
+            "type": "text",
+            "default": "yyyy-mm-dd hh:mm:ss",
+            "placeholder": "yyyy-mm-dd hh:mm:ss（iso 也可用）",
+            "help": "YAML元数据中时间字段的格式"
+          },
+          {
+            "name": "request_timeout",
+            "label": "请求超时（秒）",
+            "type": "number",
+            "default": 30,
+            "min": 5,
+            "max": 120,
+            "help": "网页抓取超时时间（默认30秒）"
+          },
+          {
+            "name": "max_batch_size",
+            "label": "批量最大URL数",
+            "type": "number",
+            "default": 50,
+            "min": 1,
+            "max": 200,
+            "help": "单次批量处理的最大URL数量（默认50）"
+          },
+          {
+            "name": "concurrent_limit",
+            "label": "并发请求数",
+            "type": "number",
+            "default": 5,
+            "min": 1,
+            "max": 20,
+            "help": "批量处理时的并发请求数量（默认5）"
+          },
+          {
+            "name": "image_handling",
+            "label": "图片处理策略",
+            "type": "text",
+            "default": "remote",
+            "placeholder": "remote（可选 local / base64）",
+            "help": "remote=保留url链接, local=下载到本地, base64=嵌入Markdown"
+          },
+          {
+            "name": "image_save_path",
+            "label": "图片保存路径",
+            "type": "text",
+            "default": "D:\\Obsidian\\articles\\_image\\",
+            "placeholder": "D:\\Obsidian\\articles\\_image\\",
+            "help": "local模式下的图片保存目录"
+          },
+          {
+            "name": "http_proxy",
+            "label": "HTTP代理",
+            "type": "text",
+            "required": false,
+            "placeholder": "http://127.0.0.1:7890",
+            "help": "HTTP代理地址，留空使用系统代理"
+          },
+          {
+            "name": "https_proxy",
+            "label": "HTTPS代理",
+            "type": "text",
+            "required": false,
+            "placeholder": "http://127.0.0.1:7890",
+            "help": "HTTPS代理地址，留空使用系统代理"
+          },
+          {
+            "name": "feishu_app_id",
+            "label": "飞书App ID",
+            "type": "text",
+            "required": false,
+            "default": "",
+            "placeholder": "cli_xxxx",
+            "help": "飞书开放平台应用ID"
+          },
+          {
+            "name": "feishu_app_secret",
+            "label": "飞书App Secret",
+            "type": "password",
+            "required": false,
+            "default": "",
+            "placeholder": "xxxx",
+            "help": "飞书开放平台应用密钥"
+          }
+        ]
+      }
+    ]
+  }
+}

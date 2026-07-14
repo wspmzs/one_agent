@@ -1,6 +1,6 @@
 # html-2-md
 
-[![Version](https://img.shields.io/badge/version-1.0.2-6366f1.svg)](https://github.com/wspmzs/one_agent/tags)
+[![Version](https://img.shields.io/badge/version-1.0.3-6366f1.svg)](https://github.com/wspmzs/one_agent/tags)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![QwenPaw](https://img.shields.io/badge/QwenPaw-Plugin-10b981.svg)](https://github.com/QwenLM/QwenPaw)
 [![QwenPaw](https://img.shields.io/badge/QwenPaw-%3C%3D2.0.0-orange)](./plugin.json)

@@ -1,8 +1,8 @@
 # 🔍 Pexels Search — QwenPaw Plugin
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue)](./plugin.json)
+[![Version](https://img.shields.io/badge/version-1.0.1-blue)](./plugin.json)
 [![协议](https://img.shields.io/badge/license-Apache%202.0-green)](./LICENSE)
-[![QwenPaw](https://img.shields.io/badge/QwenPaw-%3E%3D1.1.6-orange)](./plugin.json)
+[![QwenPaw](https://img.shields.io/badge/QwenPaw-%3C%3D2.0.0-orange)](./plugin.json)
 
 QwenPaw plugin for Pexels image search🔍. Natural-language queries with orientation, size, color, and locale filters. 8 resolution variants, local download support. Secure token config via Web UI — no credentials in code. 200 req/hr free tier. Perfect for Agent-driven PPT, front-end, and content generation workflows.
 

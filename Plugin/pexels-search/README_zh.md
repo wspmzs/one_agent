@@ -1,8 +1,8 @@
 # 🔍 Pexels 图片搜索 — QwenPaw 插件
 
-[![版本](https://img.shields.io/badge/version-1.0.0-blue)](./plugin.json)
+[![版本](https://img.shields.io/badge/version-1.0.1-blue)](./plugin.json)
 [![协议](https://img.shields.io/badge/license-Apache%202.0-green)](./LICENSE)
-[![QwenPaw](https://img.shields.io/badge/QwenPaw-%3E%3D1.1.6-orange)](./plugin.json)
+[![QwenPaw](https://img.shields.io/badge/QwenPaw-%3C%3D2.0.0-orange)](./plugin.json)
 
 QwenPaw 的 Pexels 图片搜索插件🔍 。支持自然语言搜索高质量免费图片，可按方向、尺寸、颜色、语言过滤；支持 8 种分辨率直接下载。适合 Agent 自动化制作 PPT、前端页面配图、内容生成等场景。Token 通过 Web UI 安全配置，无需在代码中暴露。基于 Pexels API，免费额度 200 次/小时。
 

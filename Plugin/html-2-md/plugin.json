@@ -1,7 +1,7 @@
 {
   "id": "html-2-md",
   "name": "HTML to Markdown",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "type": "tool",
   "description": "Converts webpage URLs to Markdown text. Supports both context/file dual mode and batch processing.",
   "description_i18n": {
@@ -10,7 +10,10 @@
   },  
   "author": "impmzs",
   "min_version": "1.1.6",
-  "max_version": "3.0.0",
+  "qwenpaw_version": {
+    "min": "1.1.6",
+    "max": "2.10.0"
+  },
   "entry": {
     "backend": "html_2_md_plugin.py"
   },

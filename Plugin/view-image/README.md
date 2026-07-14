@@ -1,126 +1,98 @@
-[![版本](https://img.shields.io/badge/version-1.0.1-blue)](./plugin.json)
+[![版本](https://img.shields.io/badge/version-1.0.2-blue)](./plugin.json)
 [![协议](https://img.shields.io/badge/license-Apache%202.0-green)](./LICENSE)
 [![QwenPaw](https://img.shields.io/badge/QwenPaw-%3C%3D2.0.0-orange)](./plugin.json)
 
-# View Image
-
-> Give your QwenPaw agent the ability to see.
-
-QwenPaw agents can't natively understand images. **View Image** changes that. Connect any OpenAI-compatible VLM — a cheap multimodal model is all you need — and your agent can read screenshots, photographs, charts, UI mockups, and more.
-
-```
-describe_image(path="/path/to/screenshot.png")
-```
+[English](./README-en.md)
 
 ---
 
-## How It Works
+# 🖼️ View Image 插件
 
-```
- User sends an image
-   → Agent calls describe_image(path)
-     → Plugin encodes image (base64 or URL)
-       → Sends to your VLM API
-         → Returns text description
-           → Agent continues with full context
-```
+很多强大的推理模型原生不具备视觉能力，无法直接理解图片内容。View Image 插件通过接入一个多模态 VLM（Vision Language Model），赋予 Agent 图像理解能力。
 
-Zero local processing. Zero hardcoded keys. All config lives in the QwenPaw Console UI.
+你只需配置一个便宜的多模态模型（如豆包 lite、千问 VL 等），即可让 Agent"看懂"截图、照片、设计稿、图表等内容。配合 `prompt_template`，可以根据不同 Agent 的角色配置不同风格的描述提示词——比如设计师 Agent 侧重 UI 布局，数据分析师 Agent 侧重图表趋势。
 
 ---
 
-## Quick Start
+## ⚠️注意
 
-### 1. Install
+此工具名称 `describe_image` 与 QwenPaw 内置的 `view_image` 不同，避免冲突。
+
+## 📦安装
+
+在 QwenPaw 运行的终端中执行：
 
 ```bash
 qwenpaw plugin install /path/to/view-image
 ```
 
-### 2. Configure
+QwenPaw 会自动：
 
-In QwenPaw Console → Agent Settings → Tools → **describe_image**:
+1. 复制 Plugin 到 `~/.qwenpaw/plugins/` 目录
+2. 自动安装 `requirements.txt` 中的依赖
+3. **热加载**到当前运行中的 QwenPaw，无需重启
 
-| Field | Value |
-|-------|-------|
-| `vlm_api_url` | Your VLM endpoint, e.g. `https://ark.cn-beijing.volces.com/api/v3/chat/completions` |
-| `vlm_api_key` | Your API key |
-| `vlm_model_name` | Model name, e.g. `doubao-seed-2-0-lite-260428` |
+> 如果 QwenPaw 未运行，Plugin 会在下次启动时加载。
 
-### 3. Enable
+## ⚙️配置（必需）
 
-Check `describe_image` in the Tools list → Save. Done.
+`describe_image` **必须配置 VLM 才能使用**，不存在降级模式。
 
----
+### 通过 QwenPaw UI 配置（推荐）
 
-## Features
+在 QwenPaw Console → Agent Settings → Tools → `describe_image` 中填写：
 
-- **Any VLM** — OpenAI-compatible API. Volcano Engine, OpenAI, SiliconFlow, local — all work.
-- **Cheap models welcome** — Doubao lite, Qwen-VL, GPT-4o-mini.  You don't need the most expensive model.
-- **Custom prompts per agent** — Designer agent focuses on layout. Data analyst focuses on trends. Each agent gets its own `prompt_template`.
-- **Local + URL images** — Absolute paths and HTTP(S) URLs both supported.
-- **Password-protected config** — API keys use `type: "password"` in the Console UI. Nothing in source.
+| 字段                  | 说明                                                 |
+| ------------------- | -------------------------------------------------- |
+| `vlm_api_url`       | VLM API 端点（OpenAI 兼容格式），如火山引擎、OpenAI、硅基流动          |
+| `vlm_api_key`       | API 密钥                                             |
+| `vlm_model_name`    | 模型名称，如 `doubao-seed-2-0-lite-260428`、`qwen-vl-max` |
+| `per_image_timeout` | 单图超时秒数（默认 60）                                      |
+| `prompt_template`   | 默认提示词（选填，不同 Agent 可按需定制）                           |
 
----
+保存后即时生效。
 
-## Parameters
+## ▶️ 启用
 
-| Parameter | Required | Description |
-|-----------|----------|-------------|
-| `path` | ✅ | Absolute local path or HTTP(S) URL of an image |
-| `prompt` | ❌ | Custom prompt for this call (overrides `prompt_template`) |
+Plugin 安装后，Tool 默认处于**禁用**状态。需在以下位置启用：
 
-Supported formats: png, jpg, jpeg, gif, webp, bmp.
+- **QwenPaw Console** → Agent Settings → Tools → 勾选 `describe_image` → 保存
 
----
+## 🚀使用
 
-## Configuration Reference
+```python
+# 本地图片
+describe_image(path="/path/to/image.jpg")
 
-| Field | Type | Default | Description |
-|-------|------|---------|-------------|
-| `vlm_api_url` | text | — | VLM API endpoint |
-| `vlm_api_key` | password | — | API key (hidden in UI) |
-| `vlm_model_name` | text | — | Model to call |
-| `per_image_timeout` | number | 60 | Seconds per image |
-| `prompt_template` | text | *(built-in)* | Default description prompt |
+# URL 图片
+describe_image(path="https://example.com/photo.png")
 
----
+# 自定义提示词（覆盖默认）
+describe_image(path="/path/to/image.jpg", prompt="请描述这个 UI 设计的布局和配色")
+```
 
-## Example: Designer Agent
+### 参数
 
-Set `prompt_template` to:
+| 参数       | 类型  | 必填  | 说明                    |
+| -------- | --- | --- | --------------------- |
+| `path`   | str | ✅   | 本地图片绝对路径或 HTTP(S) URL |
+| `prompt` | str | ❌   | 自定义提示词（覆盖 config 默认值） |
 
-> 请描述这个 UI 界面的布局结构、颜色搭配、组件类型和交互元素。用中文输出。
+### 返回值
 
-Then every call uses that lens.
+纯文本：图片描述结果（如 VLM 分析成功）或错误信息。
 
----
+## ❓常见问题
 
-## Example: Data Analyst Agent
+- **VLM 未配置**：返回明确错误，提示在 UI 中配置
+- **VLM 调用超时**：增大 `per_image_timeout` 或检查 VLM 服务负载
+- **不支持的图片格式**：支持 png / jpg / jpeg / gif / webp / bmp
 
-Set `prompt_template` to:
+## �️依赖
 
-> Describe the chart type, axis labels, data trends, outliers, and any callouts. Use English.
+- Pillow>=10.0.0
+- httpx>=0.27.0
 
-Each agent sees the same image differently — through its own prompt.
+## 📄 许可
 
----
-
-## FAQ
-
-**The tool doesn't show up after install?** Restart QwenPaw.
-
-**Timeout errors?** Bump `per_image_timeout` or try a smaller model.
-
-**"VLM not configured" error?** Fill in `vlm_api_url`, `vlm_api_key`, and `vlm_model_name` in the Console UI.
-
----
-
-## Dependencies
-
-- `Pillow >= 10.0`
-- `httpx >= 0.27`
-
----
-
-[中文文档](README_zh.md) · Author: [impmzs](https://github.com/impmzs)
+本插件采用 **Apache License 2.0** 开源。

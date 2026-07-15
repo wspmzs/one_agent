@@ -1,4 +1,4 @@
-[![版本](https://img.shields.io/badge/version-1.0.2-blue)](./plugin.json)
+[![版本](https://img.shields.io/badge/version-1.0.3-blue)](./plugin.json)
 [![协议](https://img.shields.io/badge/license-Apache%202.0-green)](./LICENSE)
 [![QwenPaw](https://img.shields.io/badge/QwenPaw-%3C%3D2.0.0-orange)](./plugin.json)
 
